@@ -36,7 +36,7 @@ namespace UserRegistrationWithLambda
                     case 5:
                         Console.WriteLine("Enter Password");
                         string password = Console.ReadLine();
-                        reg.ValidatePasswordRule3(password);
+                        reg.ValidatePasswordRule4(password);
                         break;
                     case 6:
                         flag = false;
