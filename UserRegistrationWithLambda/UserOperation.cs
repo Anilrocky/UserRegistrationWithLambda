@@ -12,7 +12,7 @@ namespace UserRegistrationWithLambda
         public const string NAME = "^[A-Z]{1}[a-z]{2,}$";
         public const string EMAIL = "^[a-zA-Z]{3,}[.]{0,1}[a-zA-Z]{0,}[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,3}[.]{0,1}[a-zA-Z]{0,2}$";
         public const string MOBILE_NUMBER = "^[0-9]{2}\\s[6-9]{1}[0-9]{9}$";
-        public const string PASSWORD = "^[A-Za-z0-9]{8,}$";
+        public const string PASSWORD = "^[A-Z]{1,}[a-z0-9]{7,}$";
         public void ValidateFirstName(string firstName)
         {
             if (Regex.IsMatch(firstName, NAME))
@@ -57,7 +57,7 @@ namespace UserRegistrationWithLambda
                 Console.WriteLine("Invalid");
             }
         }
-        public void ValidatePasswordRule1(string passwd)
+        public void ValidatePasswordRule2(string passwd)
         {
             if (Regex.IsMatch(passwd, PASSWORD))
             {
