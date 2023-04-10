@@ -10,27 +10,56 @@ namespace UserRegistration
         public const string PASSWORD = "^[A-Z]{1,}[a-z]{3,}[~!@#$&]{1,}[0-9]{1,}$";
         public string ValidateName(string name)
         {
-            if (Regex.IsMatch(name, NAME))
-                return "Valid";
-            return "Invalid";
+            try
+            {
+                if (Regex.IsMatch(name, NAME))
+                    return "Valid";
+                   
+            }
+            catch(Exception)
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID, "Invalid");
+            }
+            return "";
         }
         public string ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, EMAIL))
-                return "Valid";
-            return "Invalid";
+            try
+            {
+                if (Regex.IsMatch(email, EMAIL))
+                    return "Valid"; 
+            }
+            catch
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID, "Invalid");
+            }
+            return "";
         }
         public string ValidateMobileNumber(string number)
         {
-            if (Regex.IsMatch(number, MOBILE_NUMBER))
-                return "Valid";
-            return "Invalid";
+            try
+            {
+                if (Regex.IsMatch(number, MOBILE_NUMBER))
+                    return "Valid";
+            }
+            catch (Exception)
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID, "Invalid");
+            }            
+            return "";
         }
         public string ValidatePassword(string passwd)
         {
-            if (Regex.IsMatch(passwd, PASSWORD))
-                return "Valid";
-            return "Invalid";
+            try
+            {
+                if (Regex.IsMatch(passwd, PASSWORD))
+                    return "Valid";
+            }
+            catch
+            {
+                throw new CustomException(CustomException.ExceptionType.INVALID, "Invalid");
+            }
+            return "";
         }
         public string ValidateEmails(string[] email)
         {
