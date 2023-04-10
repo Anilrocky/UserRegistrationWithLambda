@@ -5,7 +5,7 @@ namespace UserRegistrationWithLambda
     {
         static void Main(string[] args)
         {
-            bool flag = true;
+            bool flag = true; 
             UserOperation reg = new UserOperation();
             while (flag)
             {
@@ -14,33 +14,48 @@ namespace UserRegistrationWithLambda
                 switch (option)
                 {
                     case 1:
-                        Console.WriteLine("Enter first name");
-                        string firstName = Console.ReadLine();
-                        reg.ValidateFirstName(firstName);
+                        Console.WriteLine("Enter first name");                        
+                        bool result = reg.ValidateFirstNameByLambda();
+                        if (result)
+                            Console.WriteLine("Valid");
+                        else 
+                            Console.WriteLine("Invalid"); 
                         break;
                     case 2:
                         Console.WriteLine("Enter last name");
-                        string lastName = Console.ReadLine();
-                        reg.ValidateLastName(lastName);
+                        bool result1 = reg.ValidateLastNameByLambda();
+                        if (result1)
+                            Console.WriteLine("Valid");
+                        else
+                            Console.WriteLine("Invalid");
                         break;
                     case 3:
                         Console.WriteLine("Enter E-Mail");
-                        string eMail = Console.ReadLine();
-                        reg.ValidateEmail(eMail);
+                        bool res = reg.ValidateEmailByLambda();
+                        if (res)
+                            Console.WriteLine("Valid");
+                        else
+                            Console.WriteLine("Invalid");
                         break;
                     case 4:
                         Console.WriteLine("Enter Phone number");
-                        string number = Console.ReadLine();
-                        reg.ValidatePhoneNumber(number);
+                        bool res1 = reg.ValidateMobileNumberByLambda();
+                        if (res1)
+                            Console.WriteLine("Valid");
+                        else
+                            Console.WriteLine("Invalid");
                         break;
                     case 5:
                         Console.WriteLine("Enter Password");
-                        string password = Console.ReadLine();
-                        reg.ValidatePasswordRule4(password);
+                        bool res2 = reg.ValidatePasswordByLambda();
+                        if (res2)
+                            Console.WriteLine("Valid");
+                        else
+                            Console.WriteLine("Invalid");
                         break;
-                    case 6:
-                        reg.ValidateEmails();
-                        break;
+                    //case 6:
+                    //    reg.ValidateEmails();
+                    //    break;
                     case 7:
                         flag = false;
                         break;
