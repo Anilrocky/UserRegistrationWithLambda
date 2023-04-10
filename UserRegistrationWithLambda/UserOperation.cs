@@ -21,5 +21,16 @@ namespace UserRegistrationWithLambda
                 Console.WriteLine("Invalid");
             }
         }
+        public void ValidateLastName(string lastName)
+        {
+            if (Regex.IsMatch(lastName, NAME))
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
     }
 }
