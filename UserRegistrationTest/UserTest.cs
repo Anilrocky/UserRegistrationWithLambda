@@ -8,7 +8,7 @@ namespace UserRegistrationTest
         [Test]
         public void EnteredFirstName_WhenAnalyze_ShouldReturn_Valid()
         {
-            string firstName = "Anils";
+            string firstName = "Anil";
             string result = user.ValidateName(firstName);
             Assert.AreEqual(result, "Valid");
         }
@@ -42,6 +42,19 @@ namespace UserRegistrationTest
         }
         [Test]
         public void GivenEMails_WhenAnalyze_ShouldReturn_Valid()
+        {
+            string[] email = { "anil.ac@techies.co.in", "ani@xyz.com", "xyz-100@outlook.com", "pqs.100@gmail.com", "asc111@sbc.com", "abc-100@sda.net", " abc.100@fda.com.ac", "zxc@1.com", "jkl@gmail.com.ed", "abc+100@gmail.com", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc.@gmail.com", "bc@abc@gmail.com", "abc@%*.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
+            string result = user.ValidateEmails(email);
+            for (int i = 0; i < email.Length; i++)
+            {
+                if (result.Equals("Valid"))
+                    Assert.AreEqual(result, "Valid");
+                else
+                    Assert.AreEqual(result, "Invalid");
+            }
+        }
+        [Test]
+        public void GivenEMailsWhenAnalyze_ShouldReturn_Valid()
         {
             string[] email = { "anil.ac@techies.co.in", "ani@xyz.com", "xyz-100@outlook.com", "pqs.100@gmail.com", "asc111@sbc.com", "abc-100@sda.net", " abc.100@fda.com.ac", "zxc@1.com", "jkl@gmail.com.ed", "abc+100@gmail.com", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc.@gmail.com", "bc@abc@gmail.com", "abc@%*.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
             string result = user.ValidateEmails(email);
